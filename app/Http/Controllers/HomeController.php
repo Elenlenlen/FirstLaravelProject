@@ -13,6 +13,6 @@ class HomeController extends Controller
 
     public function show()
     {
-        return 'Hi from controller!';
+        return view('home', ['name' => 'Elena']);
     }
 }
