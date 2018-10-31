@@ -10,8 +10,9 @@ class HomeController extends Controller
     {
         $this->middleware('home');
     }
-    
-    public function show(){
+
+    public function show()
+    {
         return 'Hi from controller!';
     }
 }
