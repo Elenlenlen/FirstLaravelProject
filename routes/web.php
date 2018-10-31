@@ -15,6 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', function(){
-    return 'hello frome home';
+Route::get('/home', function () {
+    return 'hello from home';
 });
