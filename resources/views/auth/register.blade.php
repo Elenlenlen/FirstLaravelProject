@@ -80,12 +80,18 @@
                             <label for="country" class="col-md-4 col-form-label text-md-right">{{ __('Country') }}</label>
 
                             <div class="col-md-6">
-                                <select id="country" name="country">
+                                <select id="country" class="form-control{{ $errors->has('country') ? ' is-invalid' : '' }}" name="country" required>
                                     @foreach ($countries as $country)
                                         <option> blabla </option>
                                         <option value="{{ $country->name }}">{{ $country->name }}</option> 
                                     @endforeach
                                 </select>
+
+                                @if ($errors->has('country'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                         </div>
 
