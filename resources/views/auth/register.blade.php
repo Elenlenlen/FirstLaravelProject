@@ -82,7 +82,8 @@
                             <div class="col-md-6">
                                 <select id="country" name="country">
                                     @foreach ($countries as $country)
-                                        <option>{{ $country->name }}</option> 
+                                        <option> blabla </option>
+                                        <option value="{{ $country->name }}">{{ $country->name }}</option> 
                                     @endforeach
                                 </select>
                             </div>
