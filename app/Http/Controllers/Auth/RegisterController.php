@@ -50,9 +50,24 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
+            'company' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'country' => 'required|exists:countries,name',
         ]);
+    }
+
+    /**
+     * Show the application registration form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showRegistrationForm()
+    {
+        $countries = \DB::table('countries')->select('name')->get();
+
+        return view('auth.register', compact('countries'));
     }
 
     /**
@@ -66,8 +81,12 @@ class RegisterController extends Controller
         
         return User::create([
             'first_name' => $data['name'],
+            'last_name' => $data['last_name'],
+            'company' => $data['company'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'country' => $data['country'],
+            'company' => $data['company']
         ]);
     }
 }
